@@ -43,7 +43,7 @@ const NotVerySecretExperimentPage = () => {
 
     fpPro
       .load({
-        token: 'tQUwQQOuG9TNwqc6F4I2',
+        token: 'd6rLS6cvOFPDlni0eApE',
         region: 'eu',
         endpoint: 'https://fp.martinmakarsky.com',
       })
