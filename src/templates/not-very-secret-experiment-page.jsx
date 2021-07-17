@@ -47,7 +47,7 @@ const NotVerySecretExperimentPage = () => {
         region: 'eu',
         endpoint: 'https://fp.martinmakarsky.com',
       })
-      .then((fp) => fp.get({ extendedResult: true }))
+      .then((fp) => fp.get({ linkedId: "makma", extendedResult: true }))
       .then((result) => {
         setVisitorIdPro(`Fingerprint by PRO is: ${result.visitorId}`)
         setResultPro(JSON.stringify(result, null, 2))
