@@ -25,7 +25,7 @@ const NotVerySecretExperimentPage = () => {
     ;(async () => {
       // Get the bot detection result when you need it.
       const botd = await botdPromise
-      const botdDetectResult = await botd.detect({myMetadata1: "ahoj", myMetadata2: "hello"})
+      const botdDetectResult = await botd.detect("my_tag")
       setBotdDetectResult(JSON.stringify(botdDetectResult, null, 2))
 
       const botdGetResult = await botd.getResult();
