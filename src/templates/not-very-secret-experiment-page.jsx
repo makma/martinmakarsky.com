@@ -25,10 +25,10 @@ const NotVerySecretExperimentPage = () => {
     ;(async () => {
       // Get the bot detection result when you need it.
       const botd = await botdPromise
-      const botdDetectResult = await botd.detect("my_tag")
+      const botdDetectResult = await botd.detect('my_tag')
       setBotdDetectResult(JSON.stringify(botdDetectResult, null, 2))
 
-      const botdGetResult = await botd.getResult();
+      const botdGetResult = await botd.getResult()
       setBotdGetResultResult(JSON.stringify(botdGetResult, null, 2))
     })()
 
@@ -47,7 +47,9 @@ const NotVerySecretExperimentPage = () => {
         region: 'eu',
         endpoint: 'https://fp.martinmakarsky.com',
       })
-      .then((fp) => fp.get({ tag: "my_tag", linkedId: "makma", extendedResult: true }))
+      .then((fp) =>
+        fp.get({ tag: 'my_tag', linkedId: 'makma', extendedResult: true })
+      )
       .then((result) => {
         setVisitorIdPro(`Fingerprint by PRO is: ${result.visitorId}`)
         setResultPro(JSON.stringify(result, null, 2))
@@ -58,21 +60,27 @@ const NotVerySecretExperimentPage = () => {
     <>
       <div>
         <h2>Botd Detect Results</h2>
-        <CodeHighlighter language="json" code={botdDetectResult} />
+        {botdDetectResult ? (
+          <CodeHighlighter language="json" code={botdDetectResult} />
+        ) : null}
       </div>
       <div>
         <h2>Botd GetResult Results</h2>
-        <CodeHighlighter language="json" code={botdGetResultResult} />
+        {botdGetResultResult ? (
+          <CodeHighlighter language="json" code={botdGetResultResult} />
+        ) : null}
       </div>
       <div>
         <h2>FingerprintJS open source</h2>
         <h3>{visitorIdOS}</h3>
-        <CodeHighlighter language="json" code={resultOS} />
+        {resultOS ? <CodeHighlighter language="json" code={resultOS} /> : null}
       </div>
       <div>
         <h2>FingerprintJS PRO</h2>
         <h3>{visitorIdPro}</h3>
-        <CodeHighlighter language="json" code={resultPro} />
+        {resultPro ? (
+          <CodeHighlighter language="json" code={resultPro} />
+        ) : null}
       </div>
     </>
   )
