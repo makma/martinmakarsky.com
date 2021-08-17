@@ -15,41 +15,14 @@ const NotVerySecretExperimentPage = () => {
   )
   const [resultPro, setResultPro] = useState('')
 
-  const [visitorIdProIOS, setVisitorIdProIOS] = useState(
-    'Waiting for visitorIdProIOS...'
-  )
-  const [resultProIOS, setResultProIOS] = useState('')
-
   useEffect(() => {
-    const vendorId = window.fingerprintjs && window.fingerprintjs.vendorId ? window.fingerprintjs.vendorId : 'not-in-ios-context'
-    ;(async () => {
-      fpPro
-        .load({
-          token: 'tQUwQQOuG9TNwqc6F4I2',
-          region: 'eu',
-          endpoint: 'https://fp.martinmakarsky.com',
-        })
-        .then((fp) =>
-          fp.get({
-            tag: {
-              deviceId: vendorId,
-              deviceType: 'ios',
-            },
-            linkedId: 'makma',
-            extendedResult: true,
-          })
-        )
-        .then((result) => {
-          setVisitorIdProIOS(`Fingerprint by PRO IOS is: ${result.visitorId}`)
-          setResultProIOS(JSON.stringify(result, null, 2))
-        })
-
     // Initialize an agent at application startup.
     const botdPromise = Botd.load({
       token: 'RBKN12LFJAyyjMSr30J',
       mode: 'allData',
     })
 
+    ;(async () => {
       // Get the bot detection result when you need it.
       const botd = await botdPromise
       const botdDetectResult = await botd.detect('my_tag')
@@ -70,7 +43,7 @@ const NotVerySecretExperimentPage = () => {
 
     fpPro
       .load({
-        token: 'tQUwQQOuG9TNwqc6F4I2',
+        token: 'd6rLS6cvOFPDlni0eApE',
         region: 'eu',
         endpoint: 'https://fp.martinmakarsky.com',
       })
@@ -86,15 +59,10 @@ const NotVerySecretExperimentPage = () => {
   return (
     <>
       <div>
-        <h2>FingerprintJS PRO iOS</h2>
-        <h3>{visitorIdProIOS}</h3>
-        {resultProIOS ? (
-          <CodeHighlighter language="json" code={resultProIOS} />
-        ) : null}
-      </div>
-      <div>
         <h2>Botd Detect Results</h2>
-        <CodeHighlighter language="json" code={botdDetectResult} />
+        {botdDetectResult ? (
+          <CodeHighlighter language="json" code={botdDetectResult} />
+        ) : null}
       </div>
       <div>
         <h2>Botd GetResult Results</h2>
