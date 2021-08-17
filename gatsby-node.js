@@ -27,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
     const tagTemplate = path.resolve('./src/templates/tag-template.jsx')
     const categoryTemplate = path.resolve('./src/templates/category-template.jsx')
     const notVerySecretExperimentPage = path.resolve('./src/templates/not-very-secret-experiment-page.jsx')
+    const fpjsProIos = path.resolve('./src/templates/fpjs-pro-ios.jsx')
 
     graphql(`
     {
@@ -126,6 +127,11 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({
         path: `/not-very-secret-experiment-page`,
         component: notVerySecretExperimentPage,
+      })
+
+      createPage({
+        path: `/fpjs-pro-ios`,
+        component: fpjsProIos,
       })
 
       resolve()
