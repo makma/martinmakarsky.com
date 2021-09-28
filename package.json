@@ -27,7 +27,7 @@
     "CMS"
   ],
   "dependencies": {
-    "@fingerprintjs/fingerprintjs": "^2.1.5",
+    "@fingerprintjs/fingerprintjs": "^3.3.0",
     "@fingerprintjs/fingerprintjs-pro": "^3.3.0",
     "@fpjs-incubator/botd-agent": "^0.1.17",
     "@reach/router": "^1.3.4",
