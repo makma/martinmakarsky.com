@@ -18,7 +18,7 @@ const NotVerySecretExperimentPage = () => {
   useEffect(() => {
     // Initialize an agent at application startup.
     const botdPromise = Botd.load({
-      token: 'RBKN12LFJAyyjMSr30J',
+      token: 'tQUwQQOuG9TNwqc6F4I2',
       mode: 'allData',
     })
 
