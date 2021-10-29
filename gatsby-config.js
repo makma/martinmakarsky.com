@@ -52,7 +52,7 @@ module.exports = {
     'gatsby-plugin-preact',
     {
       resolve: 'gatsby-plugin-sitemap',
-      options: {exclude: ["/not-very-secret-experiment-page", "/fpjs-pro-ios", "/fpjs-pro-android"]}
+      options: {excludes: ["/not-very-secret-experiment-page", "/fpjs-pro-ios", "/fpjs-pro-android"]}
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
