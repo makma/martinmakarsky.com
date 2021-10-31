@@ -25,6 +25,9 @@ const timeline = () => {
                   company {
                     value
                   }
+                  company_url {
+                    value
+                  }
                   period {
                     value
                   }
@@ -55,7 +58,7 @@ const timeline = () => {
                 <div className={item.elements.is_current.value[0].codename === 'true' ? 'title big' : 'title small'}>{item.elements.period.value}</div>
                 <div className="timeline_body">
                   <p className="timeline_body__title">{item.elements.title.value}</p>
-                  <p className="timeline_body__company">{item.elements.company.value}</p>
+                  <a href={item.elements.company_url.value} target="_blank" className="timeline_body__company">{item.elements.company.value}</a>
                   <p className="timeline_body__location">{item.elements.location.value}</p>
                 </div>
               </div>
