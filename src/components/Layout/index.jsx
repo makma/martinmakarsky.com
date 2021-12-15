@@ -2,10 +2,21 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import '../../assets/scss/init.scss'
 import ForkMeOnGithub from '../ForkMeOnGithub/index'
+import fpPro from '@fingerprintjs/fingerprintjs-pro'
 
 class Layout extends React.Component {
   render() {
     const { children } = this.props
+
+    fpPro
+    .load({
+      token: 'tQUwQQOuG9TNwqc6F4I2',
+      region: 'eu',
+      endpoint: 'https://fp.martinmakarsky.com',
+    })
+    .then((fp) =>
+      fp.get()
+    )
 
     return (
       <>
