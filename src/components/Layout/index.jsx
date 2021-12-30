@@ -8,6 +8,7 @@ class Layout extends React.Component {
   render() {
     const { children } = this.props
 
+   if (typeof window !== "undefined" && window.location) {
     fpPro
     .load({
       token: 'tQUwQQOuG9TNwqc6F4I2',
@@ -17,6 +18,7 @@ class Layout extends React.Component {
     .then((fp) =>
       fp.get()
     )
+  }
 
     return (
       <>
