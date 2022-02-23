@@ -12,6 +12,7 @@ class Layout extends React.Component {
 
     return (
         <FpjsProvider
+        forceRebuild={"asd"}
           loadOptions={{
             token: 'tQUwQQOuG9TNwqc6F4I2',
             region: 'eu',
