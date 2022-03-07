@@ -68,10 +68,10 @@
     "ncp": "^2.0.0",
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^2.4.1",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "sass": "^1.49.8"
   },
   "resolutions": {
-    "**/@fingerprintjs/fingerprintjs-pro": "^3.6.0-beta.1"
+    "**/@fingerprintjs/fingerprintjs-pro": "^3.6.0-beta.0"
   }
 }
