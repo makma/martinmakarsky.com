@@ -13,7 +13,7 @@ const FingerprintJSData = () => {
   }
 
   if (visitorData.error) {
-    console.log('An error occured')
+    console.log(`An error occured: ${visitorData.error}`)
   }
 
   if (visitorData) {

@@ -3,56 +3,40 @@ import CodeHighlighter from '../components/CodeHighlighter/index'
 import fpOS from '@fingerprintjs/fingerprintjs'
 import fpPro from '@fingerprintjs/fingerprintjs-pro'
 import Botd from '@fpjs-incubator/botd-agent'
-import { useVisitorData, FpjsProvider } from '@fingerprintjs/fingerprintjs-pro-react'
+import { FpjsProvider } from '@fingerprintjs/fingerprintjs-pro-react'
 import FingerprintJSData from '../components/FingerprintJSData/index'
 
 const NotVerySecretExperimentPage = () => {
   const [visitorIdOS, setVisitorIdOS] = useState('Waiting for visitorIdOS...')
   const [resultOS, setResultOS] = useState('Waiting for results')
-  const [botdDetectResult, setBotdDetectResult] = useState('Waiting for results')
-  const [botdGetResultResult, setBotdGetResultResult] = useState('Waiting for results')
+  const [botdDetectResult, setBotdDetectResult] = useState(
+    'Waiting for results'
+  )
+  const [botdGetResultResult, setBotdGetResultResult] = useState(
+    'Waiting for results'
+  )
 
   const [visitorIdPro, setVisitorIdPro] = useState(
     'Waiting for visitorIdPro...'
   )
   const [resultPro, setResultPro] = useState('')
 
-  function useFingerprintJSProReactLibrary() {
-    const visitorData = useVisitorData({
-      extendedResult: true,
-      tag: 'moj-tag',
-      linkedId: 'moje-linked-id',
+  function useBotd() {
+    // Initialize an agent at application startup.
+    const botdPromise = Botd.load({
+      token: 'W1QtHZuLIBWVv5XaO9T',
+      mode: 'allData',
     })
 
-    if (visitorData.isLoading) {
-      console.log('Loading')
-    }
+    ;(async () => {
+      // Get the bot detection result when you need it.
+      const botd = await botdPromise
+      const botdDetectResult = await botd.detect('my_tag')
+      setBotdDetectResult(JSON.stringify(botdDetectResult, null, 2))
 
-    if (visitorData.error) {
-      console.log('An error occured')
-    }
-
-    if (visitorData.data) {
-      console.log(visitorData.data.visitorId)
-    }
-  }
-
-  function useBotd() {
-        // Initialize an agent at application startup.
-        const botdPromise = Botd.load({
-          token: 'W1QtHZuLIBWVv5XaO9T',
-          mode: 'allData',
-        })
-    
-        ;(async () => {
-          // Get the bot detection result when you need it.
-          const botd = await botdPromise
-          const botdDetectResult = await botd.detect('my_tag')
-          setBotdDetectResult(JSON.stringify(botdDetectResult, null, 2))
-    
-          const botdGetResult = await botd.getResult()
-          setBotdGetResultResult(JSON.stringify(botdGetResult, null, 2))
-        })()
+      const botdGetResult = await botd.getResult()
+      setBotdGetResultResult(JSON.stringify(botdGetResult, null, 2))
+    })()
   }
 
   function useFingerprintJSOSS() {
@@ -68,21 +52,19 @@ const NotVerySecretExperimentPage = () => {
 
   function useFingerprintJSProDirectly() {
     fpPro
-    .load({
-      token: 'tQUwQQOuG9TNwqc6F4I2',
-      region: 'eu',
-      endpoint: 'https://fp.martinmakarsky.com',
-    })
-    .then((fp) =>
-      fp.get({ tag: 'my_tag', linkedId: 'makma', extendedResult: true })
-    )
-    .then((result) => {
-      setVisitorIdPro(`Fingerprint by PRO is: ${result.visitorId}`)
-      setResultPro(JSON.stringify(result, null, 2))
-    })
+      .load({
+        token: 'tQUwQQOuG9TNwqc6F4I2',
+        region: 'eu',
+        endpoint: 'https://fp.martinmakarsky.com',
+      })
+      .then((fp) =>
+        fp.get({ tag: 'my_tag', linkedId: 'makma', extendedResult: true })
+      )
+      .then((result) => {
+        setVisitorIdPro(`Fingerprint by PRO is: ${result.visitorId}`)
+        setResultPro(JSON.stringify(result, null, 2))
+      })
   }
-
-  useFingerprintJSProReactLibrary()
 
   useEffect(() => {
     useBotd()
@@ -122,7 +104,7 @@ const NotVerySecretExperimentPage = () => {
           <CodeHighlighter language="json" code={resultPro} />
         ) : null}
       </div>
-        <FingerprintJSData />
+      <FingerprintJSData />
     </FpjsProvider>
   )
 }
