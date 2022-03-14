@@ -72,41 +72,46 @@ const NotVerySecretExperimentPage = () => {
     useFingerprintJSProDirectly()
   }, [])
 
-  return (
-    <FpjsProvider
-      loadOptions={{
-        token: 'tQUwQQOuG9TNwqc6F4I2',
-        region: 'eu',
-        endpoint: 'https://fp.martinmakarsky.com',
-      }}
-    >
-      <div>
-        <h2>Botd Detect Results</h2>
-        {botdDetectResult ? (
-          <CodeHighlighter language="json" code={botdDetectResult} />
-        ) : null}
-      </div>
-      <div>
-        <h2>Botd GetResult Results</h2>
-        {botdGetResultResult ? (
-          <CodeHighlighter language="json" code={botdGetResultResult} />
-        ) : null}
-      </div>
-      <div>
-        <h2>FingerprintJS open source</h2>
-        <h3>{visitorIdOS}</h3>
-        {resultOS ? <CodeHighlighter language="json" code={resultOS} /> : null}
-      </div>
-      <div>
-        <h2>FingerprintJS PRO</h2>
-        <h3>{visitorIdPro}</h3>
-        {resultPro ? (
-          <CodeHighlighter language="json" code={resultPro} />
-        ) : null}
-      </div>
-      <FingerprintJSData />
-    </FpjsProvider>
-  )
+  if (typeof window !== 'undefined') {
+    return (
+      <FpjsProvider
+        loadOptions={{
+          token: 'tQUwQQOuG9TNwqc6F4I2',
+          region: 'eu',
+          endpoint: 'https://fp.martinmakarsky.com',
+        }}
+      >
+        <div>
+          <h2>Botd Detect Results</h2>
+          {botdDetectResult ? (
+            <CodeHighlighter language="json" code={botdDetectResult} />
+          ) : null}
+        </div>
+        <div>
+          <h2>Botd GetResult Results</h2>
+          {botdGetResultResult ? (
+            <CodeHighlighter language="json" code={botdGetResultResult} />
+          ) : null}
+        </div>
+        <div>
+          <h2>FingerprintJS open source</h2>
+          <h3>{visitorIdOS}</h3>
+          {resultOS ? (
+            <CodeHighlighter language="json" code={resultOS} />
+          ) : null}
+        </div>
+        <div>
+          <h2>FingerprintJS PRO</h2>
+          <h3>{visitorIdPro}</h3>
+          {resultPro ? (
+            <CodeHighlighter language="json" code={resultPro} />
+          ) : null}
+        </div>
+        <FingerprintJSData />
+      </FpjsProvider>
+    )
+  }
+  return <></>
 }
 
 export default NotVerySecretExperimentPage
