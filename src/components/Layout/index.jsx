@@ -39,6 +39,7 @@ function getVisitorId() {
     scriptUrlPattern:
       '/fpjs-pro-worker/agent?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>', // ADDED (as is)
     endpoint: '/fpjs-pro-worker/visitorId', // CHANGED
+    region: 'eu'
   })
 
   // Get the visitor identifier when you need it.
