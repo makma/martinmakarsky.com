@@ -125,10 +125,10 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
 
-      createPage({
-        path: `/not-very-secret-experiment-page`,
-        component: notVerySecretExperimentPage,
-      })
+      // createPage({
+      //   path: `/not-very-secret-experiment-page`,
+      //   component: notVerySecretExperimentPage,
+      // })
 
       createPage({
         path: `/fpjs-pro-ios`,
