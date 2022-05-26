@@ -27,11 +27,11 @@
     "CMS"
   ],
   "dependencies": {
-    "@fingerprintjs/fingerprintjs": "^3.3.1",
-    "@fingerprintjs/fingerprintjs-pro": "^3.6.0",
+    "@fingerprintjs/fingerprintjs": "^3.3.3",
+    "@fingerprintjs/fingerprintjs-pro": "^3.6.2",
     "@fingerprintjs/fingerprintjs-pro-react": "^0.3.0",
-    "@fpjs-incubator/botd-agent": "^0.1.22",
-    "gatsby-plugin-image": "^1.13.0",
+    "@fpjs-incubator/botd-agent": "^0.1.24",
+    "gatsby-plugin-image": "^1.14.2",
     "gatsby-plugin-preact": "^5.13.0",
     "preact": "^10.5.14",
     "preact-render-to-string": "^5.1.19",
