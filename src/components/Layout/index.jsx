@@ -37,8 +37,8 @@ function getVisitorId() {
   const fpPromise = FingerprintJS.load({
     apiKey: 'tQUwQQOuG9TNwqc6F4I2', // REPLACE <API_KEY>,
     scriptUrlPattern:
-      '/fpjs-pro-worker/agent?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>&region=eu', // ADDED (as is)
-    endpoint: '/fpjs-pro-worker/visitorId', // CHANGED
+      'https://martinmakarsky.com/fpjs-pro-worker/agent?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>', // ADDED (as is)
+    endpoint: 'https://martinmakarsky.com/fpjs-pro-worker/visitorId?region=eu', // CHANGED
   })
 
   // Get the visitor identifier when you need it.
