@@ -35,11 +35,10 @@ function getVisitorId() {
   console.log("getting visitorId");
   // Initialize an agent at application startup.
   const fpPromise = FingerprintJS.load({
-    apiKey: 'tQUwQQOuG9TNwqc6F4I2', // REPLACE <API_KEY>
+    apiKey: 'tQUwQQOuG9TNwqc6F4I2', // REPLACE <API_KEY>,
     scriptUrlPattern:
-      '/fpjs-pro-worker/agent?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>', // ADDED (as is)
+      '/fpjs-pro-worker/agent?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>&region=eu', // ADDED (as is)
     endpoint: '/fpjs-pro-worker/visitorId', // CHANGED
-    region: 'eu'
   })
 
   // Get the visitor identifier when you need it.
