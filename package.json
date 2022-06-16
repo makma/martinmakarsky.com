@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^3.3.3",
-    "@fingerprintjs/fingerprintjs-pro": "^3.6.2",
+    "@fingerprintjs/fingerprintjs-pro": "^3.6.3",
     "@fingerprintjs/fingerprintjs-pro-react": "^0.3.0",
     "@fpjs-incubator/botd-agent": "^0.1.24",
     "gatsby-plugin-image": "^1.14.2",
