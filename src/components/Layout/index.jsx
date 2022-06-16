@@ -33,12 +33,18 @@ class Layout extends React.Component {
 
 function getVisitorId() {
   console.log("getting visitorId");
-  // Initialize an agent at application startup.
+  // Initialize an agent at application startup using Cloudflare integration.
+  // const fpPromise = FingerprintJS.load({
+  //   apiKey: 'tQUwQQOuG9TNwqc6F4I2', // REPLACE <API_KEY>,
+  //   scriptUrlPattern:
+  //     'https://martinmakarsky.com/fpjs-pro-worker/agent?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>', // ADDED (as is)
+  //   endpoint: 'https://martinmakarsky.com/fpjs-pro-worker/visitorId?region=eu', // CHANGED
+  // })
+
   const fpPromise = FingerprintJS.load({
     apiKey: 'tQUwQQOuG9TNwqc6F4I2', // REPLACE <API_KEY>,
-    scriptUrlPattern:
-      'https://martinmakarsky.com/fpjs-pro-worker/agent?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>', // ADDED (as is)
-    endpoint: 'https://martinmakarsky.com/fpjs-pro-worker/visitorId?region=eu', // CHANGED
+    region: 'eu',
+    endpoint: 'https://fp.martinmakarsky.com'
   })
 
   // Get the visitor identifier when you need it.
