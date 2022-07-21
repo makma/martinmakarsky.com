@@ -37,7 +37,7 @@ function getVisitorId() {
      apiKey: 'tQUwQQOuG9TNwqc6F4I2', // REPLACE <API_KEY>,
      scriptUrlPattern:
        'https://martinmakarsky.com/bbcuwo8w03s36c1s/rmcqnpn7451zig6d?apiKey=<apiKey>&version=<version>&loaderVersion=<loaderVersion>', // ADDED (as is)
-     endpoint: 'https://martinmakarsky.com/bbcuwo8w03s36c1s/ottv9o457h973r88', // CHANGED
+     endpoint: 'https://martinmakarsky.com/bbcuwo8w03s36c1s/ottv9o457h973r88?region=eu', // CHANGED
    })
 
   // Get the visitor identifier when you need it.
