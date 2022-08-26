@@ -67,8 +67,9 @@ const NotVerySecretExperimentPage = () => {
   }
 
   useEffect(() => {
-    useBotd()
-    useFingerprintJSOSS()
+    // useBotd()
+    // useFingerprintJSOSS()
+    console.log('use effect');
     useFingerprintJSProDirectly()
   }, [])
 
